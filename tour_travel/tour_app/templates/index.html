@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+{% block data %}
+<div class="container fluid p-0">
+<div class="container p-0"> 
+
+
+        <div class="row mt-3 bg-info rounded" >
+            <marquee class="col-12  " loop="" behaviour="scroll"> Welcome To Shubham Tour And Travel Taxi services // 24*7 Services Available // No Rush Driving // Affortable Pricing With Comfort Ride </marquee>
+        </div>
+    
+    <div class="row  ">
+        <div class="col-12 text-center d-flex justify-content-center align-items-center ">
+
+        <img src="{% static 'img/rajwada.jpg' %} " class=" text-center rounded my-3 w-75 w-md-50"> 
+        </div>
+    </div>
+
+
+
+
+</div>
+    
+    
+</div>
+
+{% comment %}  head section  {% endcomment %}
+
+<div class="container-fluid p-0 ">
+    <div class="container p-0">
+
+        <h2 class ="text-center bg-warning  m-0 p-0  justify-content-center align-items-center rounded" >Destinations </h2>
+        {% for i in des %}
+
+     <div class="card mb-3 py-5 border-0 ">
+{% if i.d_img %}
+
+  <img src="{{ i.d_img.url }}"  alt="Destination Image " class="align-self-center rounded w-50 ">
+{% else %}
+<p> the data not found </p>
+{% endif %}
+
+  <div class="card-body ">
+    <h5 class="card-title align-self-center text-center  ">{{ i.d_name}}</h5>
+    <p class="card-text">{{ i.discription }}</p>
+    {% comment %} <p class="card-text "><b><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-currency-rupee m-0 text-center" viewBox="0 0 16 16">
+  <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4z"/>
+</svg> {{ i.price }} </b></p> {% endcomment %}
+
+<a href="#"><button class="button bg-light p-2 rounded">Bokking Now </button></a>
+  </div>
+</div>
+
+
+
+        
+        {% endfor %}
+
+    </div>
+
+</div>
+
+
+
+        {% comment %} <img src="{% static 'img/omkareshwar.jpeg' %}" hieght="200px" width="500px">  {% endcomment %}
+           
+
+{% endblock %}
