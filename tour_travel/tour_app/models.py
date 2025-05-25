@@ -30,3 +30,10 @@ class cars (models.Model):
 
     def __str__(self):
         return f'{self.car_name} { self.car_img } {self.car_colour} { self.description }'
+    
+class Contact(models.Model):
+    Name=models.CharField(max_length=100)
+    Contact=models.CharField(max_length=13)
+    Email=models.EmailField(null=False)
+    def __str__(self):
+        return f'{self.Name} { self.Contact } {self.Email}'

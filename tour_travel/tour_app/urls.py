@@ -1,5 +1,5 @@
 from django.urls import path 
-from .views import Home,Menu_page,Booking_page
+from .views import Home,Menu_page,Booking_page,Contact_page
 from django.conf import settings 
 from django.conf.urls.static import static 
 
@@ -8,7 +8,9 @@ from django.conf.urls.static import static
 urlpatterns = [
     path ('',Home, name='Home'),
     path ('Menu',Menu_page, name='Menu'),
-    path ('Booking',Booking_page, name='Booking')
+    path ('Booking',Booking_page, name='Booking'),
+    path ('Contact',Contact_page, name='Contact')
+
 
 
 

@@ -1,5 +1,5 @@
 from django.shortcuts import render,HttpResponse
-from .models import destinations,booking,cars
+from .models import destinations,booking,cars,Contact
 
 # Create your views here.
 
@@ -29,3 +29,11 @@ def Booking_page(req):
        'Booking':Booking
     }
     return render (req , 'booking.html', data )
+
+def Contact_page(req):
+    con=Contact.objects.all()
+    data={
+        'con':con
+    }
+    return render (req,"contact.html",data)
+    

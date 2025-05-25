@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import destinations , booking ,cars
+from .models import destinations , booking ,cars,Contact
 
 # Register your models here.
 class destination_Admin(admin.ModelAdmin):
@@ -23,4 +23,12 @@ class cars_Admin(admin.ModelAdmin):
 
 
 admin.site.register(cars,cars_Admin)
+
+
+
+class Contact_admin(admin.ModelAdmin):
+    list_display=['Name','Contact','Email']
+    
+admin.site.register(Contact,Contact_admin)
+
 

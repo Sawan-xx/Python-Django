@@ -3,13 +3,16 @@
     padding: 0;
 }
 
+.brand-name{
+   font-size:large;
+   font-weight: 600;
+   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 
 /* 
  */
 
- .nav-bar-row{
-    background:rgb(220, 192, 10);
- }
+
 
  /*  header styling  */
 /* 
