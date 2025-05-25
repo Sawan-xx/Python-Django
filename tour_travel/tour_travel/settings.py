@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-aq*99$x+k7tkx6xlh+_+fuy8!*eefl0vz_*g9e_u_^9+l=l*(+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://shubhamtourandtravels.onrender.com']
 
 
 # Application definition
@@ -118,6 +118,8 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 import os
+import dj_database_url
+
 
 MEDIA_URL='/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
