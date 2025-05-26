@@ -1,0 +1,25 @@
+*{
+    margin :0 ;
+    padding: 0;
+}
+
+.brand-name{
+   font-size:large;
+   font-weight: 600;
+   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* 
+ */
+
+
+
+ /*  header styling  */
+/* 
+ .header-div{
+ 
+   
+    background-image: url(img/rajwada.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+ } */
