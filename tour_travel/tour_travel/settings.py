@@ -24,12 +24,12 @@ SECRET_KEY = 'django-insecure-aq*99$x+k7tkx6xlh+_+fuy8!*eefl0vz_*g9e_u_^9+l=l*(+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['shubhamtourandtravels.onrender.com']
+# ALLOWED_HOSTS = ['shubhamtourandtravels.onrender.com']
 
 
-# ALLOWED_HOSTS=[]
+ALLOWED_HOSTS=[]
 
 
 # Application definition
@@ -144,3 +144,20 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]# added 26 may
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# added  
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'DEBUG',
+    },
+}
