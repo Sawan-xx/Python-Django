@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: my-django-app
+    env: python
+    buildCommand: ./build.sh
+    startCommand: gunicorn myproject.wsgi
+    disk:
+      name: media
+      mountPath: /app/media
