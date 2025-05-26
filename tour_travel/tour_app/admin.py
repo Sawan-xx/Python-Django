@@ -32,3 +32,5 @@ class Contact_admin(admin.ModelAdmin):
 admin.site.register(Contact,Contact_admin)
 
 
+admin.site.site_title="ShubhamTourAndTravels"
+admin.site.site_header="ShubhamTourAndTravels"
