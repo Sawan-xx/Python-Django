@@ -24,12 +24,12 @@ SECRET_KEY = 'django-insecure-aq*99$x+k7tkx6xlh+_+fuy8!*eefl0vz_*g9e_u_^9+l=l*(+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['shubhamtourandtravels.onrender.com']
+# ALLOWED_HOSTS = ['shubhamtourandtravels.onrender.com']
 
 
-# ALLOWED_HOSTS=[]
+ALLOWED_HOSTS=[]
 
 
 # Application definition
@@ -46,10 +46,11 @@ INSTALLED_APPS = [
     'cloudinary_storage',
 ]
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'dqlfqzmwb',
-    'API_KEY': '587776444145616',
-    'API_SECRET': 'C2eVFIuY5b3IjxvMnzE_nEtr0g0'
+    'CLOUD_NAME': env('duz01biai') ,
+    'API_KEY': env('288976844281926'),
+    'API_SECRET': env('vi8p1Gs1pY5XiFdrVQf62X_6HDg')
 }
 
 MIDDLEWARE = [
@@ -135,11 +136,20 @@ USE_TZ = True
 # STATIC_URL = 'static/'
 
 import os
+import environ
+
 import dj_database_url
 
 
-MEDIA_URL='/media/'
-MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+env = environ.Env() # added 28 
+environ.Env.read_env() # added 28 
+
+CLOUDINARY_URL = "cloudinary://288976844281926:vi8p1Gs1pY5XiFdrVQf62X_6HDg@duz01biai"
+CLOUDINARY_URL = os.getenv("CLOUDINARY_URL")
+
+
+# MEDIA_URL='/media/'
+# MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 
 STATIC_URL = '/static/' # added 26 may 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # added 26 may 

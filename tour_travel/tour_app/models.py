@@ -1,10 +1,12 @@
+from cloudinary.models import CloudinaryField # to store the data in cloud 
 from django.db import models
 from django.contrib.auth.models import User
+
 
 # Create your models here.
 class destinations(models.Model):
     d_name=models.CharField(max_length=50)
-    d_img=models.FileField(upload_to='destination')
+    d_img=CloudinaryField('image')
     discription=models.TextField()
     price=models.IntegerField()
 
@@ -25,7 +27,7 @@ class booking(models.Model):
 class cars (models.Model):
     car_name=models.CharField(max_length=50)
     car_colour=models.CharField(max_length=50)
-    car_img=models.FileField(upload_to='cars')
+    car_img=CloudinaryField('image')
     description=models.TextField()
 
     def __str__(self):
@@ -34,6 +36,6 @@ class cars (models.Model):
 class Contact(models.Model):
     Name=models.CharField(max_length=100)
     Contact=models.CharField(max_length=13)
-    Email=models.EmailField(null=False)
+    Email=models.EmailField(null=True)
     def __str__(self):
         return f'{self.Name} { self.Contact } {self.Email}'

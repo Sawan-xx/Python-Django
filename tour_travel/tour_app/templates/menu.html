@@ -7,6 +7,7 @@
         {% for i in car %}
         <div class="col-md-6 bg-warning rounded align-self-center mx-2 my-5 py-3  ">
             {% if i.car_img  %}
+            
             <img src="{{ i.car_img.url }}" alt="car images " class="rounded  w-50  text-center ">
             {% else %}
             <p>not found </p>
