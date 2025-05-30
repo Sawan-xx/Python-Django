@@ -11,6 +11,11 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import environ
+
+
+env = environ.Env() # added 28 
+environ.Env.read_env() # added 28
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,12 +29,12 @@ SECRET_KEY = 'django-insecure-aq*99$x+k7tkx6xlh+_+fuy8!*eefl0vz_*g9e_u_^9+l=l*(+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = True
+DEBUG = False
 
-# ALLOWED_HOSTS = ['shubhamtourandtravels.onrender.com']
+ALLOWED_HOSTS = ['shubhamtourandtravels.onrender.com']
 
 
-ALLOWED_HOSTS=[]
+# ALLOWED_HOSTS=[]
 
 
 # Application definition
@@ -48,10 +53,11 @@ INSTALLED_APPS = [
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': env('duz01biai') ,
-    'API_KEY': env('288976844281926'),
-    'API_SECRET': env('vi8p1Gs1pY5XiFdrVQf62X_6HDg')
+    'CLOUD_NAME': env('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': env('CLOUDINARY_API_KEY'),
+    'API_SECRET': env('CLOUDINARY_API_SECRET'),
 }
+
 
 MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',# added 
@@ -141,8 +147,7 @@ import environ
 import dj_database_url
 
 
-env = environ.Env() # added 28 
-environ.Env.read_env() # added 28 
+ 
 
 CLOUDINARY_URL = "cloudinary://288976844281926:vi8p1Gs1pY5XiFdrVQf62X_6HDg@duz01biai"
 CLOUDINARY_URL = os.getenv("CLOUDINARY_URL")
