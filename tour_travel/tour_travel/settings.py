@@ -11,7 +11,13 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+
+import os
+
 import environ
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 
 env = environ.Env() # added 28 
@@ -50,13 +56,24 @@ INSTALLED_APPS = [
     'cloudinary',
     'cloudinary_storage',
 ]
+
+# media file storage 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': env('CLOUDINARY_CLOUD_NAME'),
-    'API_KEY': env('CLOUDINARY_API_KEY'),
-    'API_SECRET': env('CLOUDINARY_API_SECRET'),
-}
+# Cloudinary configuration
+cloudinary.config( 
+  cloud_name = os.environ.get('CLOUDINARY_CLOUD_NAME'), 
+  api_key = os.environ.get('CLOUDINARY_API_KEY'), 
+  api_secret = os.environ.get('CLOUDINARY_API_SECRET'),
+)
+from decouple import config
+
+cloudinary.config( 
+  cloud_name = config('CLOUDINARY_CLOUD_NAME'),
+  api_key = config('CLOUDINARY_API_KEY'),
+  api_secret = config('CLOUDINARY_API_SECRET')
+)
+
 
 
 MIDDLEWARE = [
@@ -141,16 +158,28 @@ USE_TZ = True
 
 # STATIC_URL = 'static/'
 
-import os
-import environ
 
 import dj_database_url
+
 
 
  
 
 CLOUDINARY_URL = "cloudinary://288976844281926:vi8p1Gs1pY5XiFdrVQf62X_6HDg@duz01biai"
 CLOUDINARY_URL = os.getenv("CLOUDINARY_URL")
+
+
+CLOUDINARY_CLOUD_NAME = os.getenv('CLOUDINARY_CLOUD_NAME', 'duz01biai')
+CLOUDINARY_API_KEY = os.getenv('CLOUDINARY_API_KEY', '288976844281926')
+CLOUDINARY_API_SECRET = os.getenv('CLOUDINARY_API_SECRET', 'vi8p1Gs1pY5XiFdrVQf62X_6HDg')
+
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'CLOUDINARY_CLOUD_NAME',
+    'API_KEY': 'CLOUDINARY_API_KEY',
+    'API_SECRET': 'CLOUDINARY_API_SECRET',
+}
+
 
 
 # MEDIA_URL='/media/'
